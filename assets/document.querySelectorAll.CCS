@@ -1,0 +1,54 @@
+// Funcionalidad para los botones de música
+        document.querySelectorAll('.control-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-play')) {
+                    // Simular reproducción de música
+                    alert('¡Música de cumpleaños comenzará a sonar! 🎵');
+                } else if (icon.classList.contains('fa-pause')) {
+                    // Simular pausa de música
+                    alert('Música pausada');
+                } else if (icon.classList.contains('fa-volume-up')) {
+                    // Simular ajuste de volumen
+                    alert('Ajustando el volumen...');
+                }
+            });
+        });
+        
+        // Funcionalidad para los placeholders de fotos y video
+        document.querySelectorAll('.photo-placeholder, .video-container').forEach(item => {
+            item.addEventListener('click', function() {
+                alert('En la versión final, aquí se mostraría una foto o video real de Emilia');
+            });
+        });
+        
+        // Efecto de confeti al hacer clic en cualquier lugar
+        document.addEventListener('click', function() {
+            const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
+            const confetti = document.createElement('div');
+            confetti.innerHTML = '🎊';
+            confetti.style.position = 'fixed';
+            confetti.style.fontSize = (Math.random() * 30 + 15) + 'px';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = Math.random() * window.innerHeight + 'px';
+            confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.pointerEvents = 'none';
+            confetti.style.zIndex = '1000';
+            document.body.appendChild(confetti);
+            
+            // Animación
+            let pos = 0;
+            const fall = setInterval(() => {
+                pos += 5;
+                confetti.style.top = parseFloat(confetti.style.top) + 5 + 'px';
+                confetti.style.opacity = 1 - (pos / 200);
+                
+                if (pos > 200) {
+                    clearInterval(fall);
+                    confetti.remove();
+                }
+            }, 50);
+        });
+    </script>
+</body>
+</html>
