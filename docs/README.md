@@ -1,5 +1,5 @@
-# cumple-emilia
-Portafolios de Cumpleaños para Emilia - GitHub Repository
+# cumple-emily
+Portafolios de Cumpleaños para Emily - GitHub Repository
 
 Descripción del Proyecto / Project Description
 
