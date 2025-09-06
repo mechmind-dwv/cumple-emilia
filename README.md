@@ -72,4 +72,4 @@ Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para detalles.
 
 ---
 
-¡Feliz cumpleaños Emilia! 🎉🎂🎈
+¡Feliz cumpleaños Emily! 🎉🎂🎈
