@@ -1,0 +1,362 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz 5º Cumpleaños, Emilia!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ff9ecb 0%, #9edadf 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(to right, #ff7eb3, #ffccf9, #b5b9ff);
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            color: #ff0066;
+            text-shadow: 3px 3px 0 #ffcc00;
+            margin-bottom: 15px;
+        }
+        
+        .age-badge {
+            background: #ffcc00;
+            color: #ff0066;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 5px solid #ff0066;
+            box-shadow: 0 0 15px rgba(255, 0, 102, 0.5);
+        }
+        
+        .header-decoration {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        .decoration-1 { top: 20px; left: 5%; animation-delay: 0s; }
+        .decoration-2 { top: 10px; right: 5%; animation-delay: 0.5s; }
+        .decoration-3 { bottom: 15px; left: 10%; animation-delay: 1s; }
+        .decoration-4 { bottom: 20px; right: 10%; animation-delay: 1.5s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            color: #ff0066;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 3px dotted #ffcc00;
+            padding-bottom: 10px;
+        }
+        
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(45deg, #ffccf9, #b5b9ff);
+            border-radius: 15px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff0066;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+        }
+        
+        .video-container {
+            background: linear-gradient(45deg, #ffccf9, #b5b9ff);
+            border-radius: 15px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff0066;
+            font-size: 4rem;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .video-container:hover {
+            transform: scale(1.03);
+        }
+        
+        .music-player {
+            background: #f0f9ff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .music-title {
+            color: #ff0066;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: #ff0066;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .control-btn:hover {
+            background: #ffcc00;
+            color: #ff0066;
+            transform: scale(1.1);
+        }
+        
+        .valentina-section {
+            background: linear-gradient(to right, #8a2be2, #ff00ff);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .valentina-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(to right, #ff7eb3, #ffccf9);
+            color: #ff0066;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .hearts {
+            font-size: 2rem;
+            letter-spacing: 10px;
+            color: #ff0066;
+            margin: 15px 0;
+        }
+        
+        .cake {
+            font-size: 3rem;
+            animation: bounce 2s infinite alternate;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="age-badge">5</div>
+            <h1>¡Feliz Cumpleaños Emilia!</h1>
+            <p>¡Celebramos tus 5 años llenos de alegría y diversión!</p>
+            
+            <div class="header-decoration decoration-1">🎂</div>
+            <div class="header-decoration decoration-2">🥳</div>
+            <div class="header-decoration decoration-3">🎁</div>
+            <div class="header-decoration decoration-4">🎈</div>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">Mis Fotos Especiales</h2>
+                <div class="photos">
+                    <div class="photo-placeholder">📸</div>
+                    <div class="photo-placeholder">👑</div>
+                    <div class="photo-placeholder">🌈</div>
+                    <div class="photo-placeholder">✨</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Mi Video de Cumpleaños</h2>
+                <div class="video-container">🎬</div>
+                <p>¡Haz clic en el icono de la cámara para ver un video especial de mi cumpleaños!</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Música de Fiesta</h2>
+                <div class="music-player">
+                    <div class="music-title">Shakira - Ole Ola</div>
+                    <div class="player-controls">
+                        <button class="control-btn"><i class="fas fa-play"></i></button>
+                        <button class="control-btn"><i class="fas fa-pause"></i></button>
+                        <button class="control-btn"><i class="fas fa-volume-up"></i></button>
+                    </div>
+                </div>
+                
+                <div class="music-player" style="margin-top: 20px;">
+                    <div class="music-title">Canción de Cumpleaños</div>
+                    <div class="player-controls">
+                        <button class="control-btn"><i class="fas fa-play"></i></button>
+                        <button class="control-btn"><i class="fas fa-pause"></i></button>
+                        <button class="control-btn"><i class="fas fa-volume-up"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Mi Serie Favorita</h2>
+                <div class="valentina-section">
+                    <h3 class="valentina-title">Valentina Capuchina</h3>
+                    <p>¡Como Valentina, soy valiente y llena de energía!</p>
+                    <div style="font-size: 4rem; margin: 15px 0;">🌶️</div>
+                    <p>¡Aventuras y diversión todos los días!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="valentina-section" style="margin: 30px;">
+            <h3 class="valentina-title">¡Eres Nuestra Estrella!</h3>
+            <p>Emilia, en tus 5 años, iluminas nuestras vidas con tu sonrisa y alegría.</p>
+            <p>¡Que tengas un día lleno de magia y diversión!</p>
+        </div>
+        
+        <footer>
+            <div class="hearts">❤️🌈✨🎊🎉</div>
+            <p>Con mucho cariño en tu día especial</p>
+            <div class="cake">🎂</div>
+        </footer>
+    </div>
+
+    <script>
+        // Funcionalidad para los botones de música
+        document.querySelectorAll('.control-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('fa-play')) {
+                    // Simular reproducción de música
+                    alert('¡Música de cumpleaños comenzará a sonar! 🎵');
+                } else if (icon.classList.contains('fa-pause')) {
+                    // Simular pausa de música
+                    alert('Música pausada');
+                } else if (icon.classList.contains('fa-volume-up')) {
+                    // Simular ajuste de volumen
+                    alert('Ajustando el volumen...');
+                }
+            });
+        });
+        
+        // Funcionalidad para los placeholders de fotos y video
+        document.querySelectorAll('.photo-placeholder, .video-container').forEach(item => {
+            item.addEventListener('click', function() {
+                alert('En la versión final, aquí se mostraría una foto o video real de Emilia');
+            });
+        });
+        
+        // Efecto de confeti al hacer clic en cualquier lugar
+        document.addEventListener('click', function() {
+            const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
+            const confetti = document.createElement('div');
+            confetti.innerHTML = '🎊';
+            confetti.style.position = 'fixed';
+            confetti.style.fontSize = (Math.random() * 30 + 15) + 'px';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = Math.random() * window.innerHeight + 'px';
+            confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.pointerEvents = 'none';
+            confetti.style.zIndex = '1000';
+            document.body.appendChild(confetti);
+            
+            // Animación
+            let pos = 0;
+            const fall = setInterval(() => {
+                pos += 5;
+                confetti.style.top = parseFloat(confetti.style.top) + 5 + 'px';
+                confetti.style.opacity = 1 - (pos / 200);
+                
+                if (pos > 200) {
+                    clearInterval(fall);
+                    confetti.remove();
+                }
+            }, 50);
+        });
+    </script>
+</body>
+</html>
