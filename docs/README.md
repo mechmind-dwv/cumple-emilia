@@ -31,17 +31,12 @@ Tecnologías Utilizadas / Technologies Used
 Estructura del Proyecto / Project Structure
 
 ```
-/
-├── index.html          # Archivo principal
-├── assets/
-│   ├── css/           # Estilos (incorporados en HTML)
-│   ├── js/            # Scripts (incorporados en HTML)
-│   ├── images/        # Imágenes del proyecto
-│   ├── photos/        # Fotografías de Emilia
-│   └── music/         # Archivos de audio
-├── README.md          # Este archivo
-└── LICENSE            # Licencia (opcional)
-```
+cumple-emily/
+├── index.html          # Archivo principal HTML
+├── styles.css          # Estilos CSS
+├── script.js           # Funcionalidad JavaScript
+└── assets/
+    └── placeholder.jpg # Imagen de respaldo
 
 Instrucciones de Uso / Usage Instructions
 
