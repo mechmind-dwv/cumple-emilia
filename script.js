@@ -347,4 +347,25 @@ function typeWriterEffect() {
 }
 
 // Iniciar efecto de escritura
-type
+typeWriterEffect();
+
+// Efecto de scroll parallax
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.parallax-effect');
+    
+    parallaxElements.forEach(element => {
+        const speed = 0.5;
+        element.style.transform = `translateY(${scrolled * speed}px) translateZ(0)`;
+    });
+});
+
+// Activar audio al hacer clic en cualquier parte (requerimiento de navegadores)
+document.body.addEventListener('click', function() {
+    // Este evento permite que el audio se reproduzca después de la interacción del usuario
+    if (currentAudio && currentAudio.paused) {
+        currentAudio.play().catch(error => {
+            console.log('Error al reproducir audio:', error);
+        });
+    }
+}, { once: true });
