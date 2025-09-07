@@ -3,11 +3,523 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz 5º Cumpleaños, Emily!</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>¡Feliz 5º Cumpleaños, Princesa Emily!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #ff2d75;
+            --color-secondary: #ffcc00;
+            --color-accent: #00c2ff;
+            --color-background: #fffaf0;
+            --color-text: #333;
+            --color-pink-light: #ff9ecb;
+            --color-blue-light: #9edadf;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-blue-light) 100%);
+            color: var(--color-text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+            perspective: 1000px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        /* Encabezado con animación especial */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to right, #ff7eb3, #ffccf9, #b5b9ff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .age-badge {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 5px solid var(--color-primary);
+            box-shadow: 0 0 25px rgba(255, 0, 102, 0.6);
+            animation: pulse 2s infinite, rotate 10s infinite linear;
+            transform-style: preserve-3d;
+        }
+
+        h1 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 4rem;
+            color: var(--color-primary);
+            text-shadow: 3px 3px 0 var(--color-secondary);
+            margin-bottom: 15px;
+            animation: bounceIn 1.2s ease-out;
+        }
+
+        .header-decoration {
+            position: absolute;
+            font-size: 3rem;
+            animation: float 5s infinite ease-in-out;
+            z-index: 2;
+            filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.3));
+        }
+
+        .decoration-1 { top: 20px; left: 5%; animation-delay: 0s; }
+        .decoration-2 { top: 10px; right: 5%; animation-delay: 1s; }
+        .decoration-3 { bottom: 15px; left: 10%; animation-delay: 2s; }
+        .decoration-4 { bottom: 20px; right: 10%; animation-delay: 3s; }
+
+        /* Contenido principal */
+        .content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        .section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent));
+        }
+
+        .section:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            font-family: 'Baloo 2', cursive;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 15px 10px;
+            border-bottom: 3px dotted var(--color-secondary);
+        }
+
+        /* Galería de fotos mejorada */
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            height: 200px;
+            box-shadow: var(--shadow);
+            transform-style: preserve-3d;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px) rotate3d(1, 1, 0, 5deg) scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .photo-item:hover .photo-img {
+            transform: scale(1.15);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 15px 10px 5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .photo-item:hover .photo-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Reproductores de música y video */
+        .media-container {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .media-container:hover {
+            transform: scale(1.02);
+        }
+
+        .media-container iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            display: block;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: var(--color-primary);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 0, 102, 0.3);
+        }
+
+        .control-btn:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            transform: scale(1.1) rotate(8deg);
+            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+        }
+
+        /* Sección especial de Valentina */
+        .valentina-section {
+            background: linear-gradient(to right, #8a2be2, #ff00ff);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .valentina-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20"><circle cx="10" cy="10" r="2" fill="white" opacity="0.2"/></svg>');
+            z-index: 0;
+        }
+
+        .valentina-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--color-secondary);
+            position: relative;
+            z-index: 1;
+            font-family: 'Baloo 2', cursive;
+        }
+
+        /* Footer especial */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(to right, #ff7eb3, #ffccf9);
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hearts {
+            font-size: 2.5rem;
+            letter-spacing: 15px;
+            color: var(--color-primary);
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .cake {
+            font-size: 4rem;
+            animation: bounce 2s infinite alternate, rotate 15s infinite linear;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+        }
+
+        .cake:hover {
+            transform: scale(1.2) rotate(15deg);
+            filter: drop-shadow(0 0 15px var(--color-secondary));
+        }
+
+        /* Animaciones personalizadas */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(5deg); }
+            66% { transform: translateY(10px) rotate(-5deg); }
+        }
+
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Efectos de confeti */
+        .confetti {
+            position: fixed;
+            width: 15px;
+            height: 15px;
+            opacity: 0;
+            pointer-events: none;
+            animation: confetti-fall 5s linear forwards;
+            z-index: 1000;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Cursor personalizado */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translateZ(20px);
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--color-secondary);
+            border-radius: 50%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.1s ease;
+            transform: translateZ(10px);
+        }
+
+        /* Modal para fotos */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            border: 5px solid var(--color-secondary);
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(255, 204, 0, 0.6);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: white;
+            font-size: 45px;
+            cursor: pointer;
+            text-shadow: 0 0 8px var(--color-primary);
+            transition: transform 0.3s ease;
+            z-index: 2001;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        /* Efectos de carga para imágenes */
+        .photo-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: linear-gradient(45deg, #ffccf9, #b5b9ff);
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 0, 102, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--color-primary);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mensaje especial */
+        .secret-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--color-primary);
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .secret-message:hover {
+            transform: scale(1.1) rotate(12deg);
+            border-radius: 15px;
+            width: auto;
+            height: auto;
+            padding: 15px 20px;
+        }
+
+        .secret-message:hover::after {
+            content: '¡Te amo, Emily!';
+            margin-left: 10px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <div class="container">
         <header>
             <div class="age-badge">5</div>
@@ -24,63 +536,104 @@
             <div class="section">
                 <h2 class="section-title">Mis Fotos Especiales</h2>
                 
-                <div class="instructions">
-                    <h3>📸 Galería de Emily - Haz clic en cada foto para verla más grande</h3>
-                    <p>Si las fotos no se cargan, verifica que los enlaces de Google Drive sean públicos.</p>
-                </div>
-                
-                <div class="debug-info" id="photoDebugInfo">
-                    Estado de carga de imágenes: Verificando...
-                </div>
-                
                 <div class="photos">
-                    <!-- Las fotos se cargarán dinámicamente con JavaScript -->
+                    <!-- Fotos de Emily con mejores prácticas de carga -->
+                    <div class="photo-item">
+                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
+                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG&sz=w600" 
+                             alt="Emily sonriendo" 
+                             onload="imageLoaded(this)" 
+                             onerror="imageError(this, '1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG')">
+                        <div class="photo-caption">¡Sonriendo siempre!</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
+                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1qlklWfoT53toMmFH-vWa1HkchobZva6b&sz=w600" 
+                             alt="Emily celebrando" 
+                             onload="imageLoaded(this)" 
+                             onerror="imageError(this, '1qlklWfoT53toMmFH-vWa1HkchobZva6b')">
+                        <div class="photo-caption">¡Celebrando la vida!</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
+                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ&sz=w600" 
+                             alt="Emily jugando" 
+                             onload="imageLoaded(this)" 
+                             onerror="imageError(this, '1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ')">
+                        <div class="photo-caption">¡Jugando como siempre!</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
+                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC&sz=w600" 
+                             alt="Emily con globos" 
+                             onload="imageLoaded(this)" 
+                             onerror="imageError(this, '1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC')">
+                        <div class="photo-caption">¡Con mis globos favoritos!</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
+                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr&sz=w600" 
+                             alt="Emily feliz" 
+                             onload="imageLoaded(this)" 
+                             onerror="imageError(this, '1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr')">
+                        <div class="photo-caption">¡Pura felicidad!</div>
+                    </div>
+                    <div class="photo-item">
+                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
+                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n&sz=w600" 
+                             alt="Emily de fiesta" 
+                             onload="imageLoaded(this)" 
+                             onerror="imageError(this, '1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n')">
+                        <div class="photo-caption">¡Mode fiesta activado!</div>
+                    </div>
                 </div>
-                <div class="photo-counter" id="photoCounter"></div>
             </div>
             
             <div class="section">
                 <h2 class="section-title">Mi Video de Cumpleaños</h2>
-                <div class="video-container">
-                    <iframe src="" id="video1" allow="autoplay" allowfullscreen></iframe>
+                <div class="media-container">
+                    <iframe src="https://drive.google.com/file/d/1mWJIUgHD5s_zHJlABfpbmBF01Bgmnd-N/preview" 
+                            allow="autoplay" 
+                            allowfullscreen>
+                    </iframe>
                 </div>
                 <p>¡Mira este video especial de mi cumpleaños!</p>
                 
-                <div class="video-container" style="margin-top: 20px;">
-                    <iframe src="" id="video2" allow="autoplay" allowfullscreen></iframe>
+                <div class="media-container" style="margin-top: 20px;">
+                    <iframe src="https://drive.google.com/file/d/1atbf_dlZaBbU-cdIFKxvAXAFKlRw62MD/preview" 
+                            allow="autoplay" 
+                            allowfullscreen>
+                    </iframe>
                 </div>
                 <p>¡Y este otro momento divertido!</p>
             </div>
             
             <div class="section">
                 <h2 class="section-title">Música de Fiesta</h2>
-                
-                <div class="music-player">
-                    <div class="music-title">Cumpleaños Feliz Emily</div>
-                    <div class="youtube-player">
-                        <iframe id="youtube1" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="player-controls">
-                        <button class="control-btn" id="play1"><i class="fas fa-play"></i></button>
-                        <button class="control-btn" id="pause1"><i class="fas fa-pause"></i></button>
-                        <button class="control-btn" id="mute1"><i class="fas fa-volume-up"></i></button>
-                    </div>
+                <div class="media-container">
+                    <iframe src="https://www.youtube.com/embed/wL7I0BU5vtM?rel=0&modestbranding=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="player-controls">
+                    <button class="control-btn" onclick="playMusic('birthday')"><i class="fas fa-play"></i></button>
+                    <button class="control-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
+                    <button class="control-btn" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
                 </div>
                 
-                <div class="music-player">
-                    <div class="music-title">Shakira - Ole Ola</div>
-                    <div class="youtube-player">
-                        <iframe id="youtube2" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="player-controls">
-                        <button class="control-btn" id="play2"><i class="fas fa-play"></i></button>
-                        <button class="control-btn" id="pause2"><i class="fas fa-pause"></i></button>
-                        <button class="control-btn" id="mute2"><i class="fas fa-volume-up"></i></button>
-                    </div>
+                <div class="media-container" style="margin-top: 20px;">
+                    <iframe src="https://www.youtube.com/embed/TGtWWb9emYI?rel=0&modestbranding=1" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
                 </div>
-                
-                <div class="music-notice">
-                    <i class="fas fa-info-circle"></i> Haz clic en los botones para controlar la música
+                <div class="player-controls">
+                    <button class="control-btn" onclick="playMusic('shakira')"><i class="fas fa-play"></i></button>
+                    <button class="control-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
+                    <button class="control-btn" onclick="toggleMute()"><i class="fas fa-volume-up"></i></button>
                 </div>
             </div>
             
@@ -89,7 +642,7 @@
                 <div class="valentina-section">
                     <h3 class="valentina-title">Valentina Capuchina</h3>
                     <p>¡Como Valentina, soy valiente y llena de energía!</p>
-                    <div style="font-size: 4rem; margin: 15px 0;">🌶️</div>
+                    <div style="font-size: 4rem; margin: 20px 0; animation: pulse 2s infinite;">🌶️</div>
                     <p>¡Aventuras y diversión todos los días!</p>
                 </div>
             </div>
@@ -104,16 +657,263 @@
         <footer>
             <div class="hearts">❤️🌈✨🎊🎉</div>
             <p>Con mucho cariño en tu día especial</p>
-            <div class="cake" id="confettiBtn">🎂</div>
+            <div class="cake" onclick="throwConfetti()">🎂</div>
         </footer>
     </div>
 
     <!-- Modal para ver fotos en grande -->
     <div id="photoModal" class="modal">
-        <span class="close-modal" id="closeModal">&times;</span>
+        <span class="close-modal" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
 
-    <script src="script.js"></script>
+    <!-- Mensaje secreto -->
+    <div class="secret-message">💖</div>
+
+    <script>
+        // Variables de estado
+        let loadedImagesCount = 0;
+        let isMusicPlaying = false;
+        let isMuted = false;
+        
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            initCustomCursor();
+            preloadImages();
+            startBackgroundAnimation();
+            
+            // Iniciar música después de la interacción del usuario
+            document.body.addEventListener('click', function() {
+                if (!isMusicPlaying) {
+                    playMusic('birthday');
+                    isMusicPlaying = true;
+                }
+            }, { once: true });
+        });
+        
+        // Cursor personalizado
+        function initCustomCursor() {
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            
+            document.addEventListener('mousemove', (e) => {
+                cursorDot.style.left = `${e.clientX - 4}px`;
+                cursorDot.style.top = `${e.clientY - 4}px`;
+                
+                cursorOutline.style.left = `${e.clientX - 20}px`;
+                cursorOutline.style.top = `${e.clientY - 20}px`;
+            });
+            
+            // Efectos al hacer hover en elementos interactivos
+            const interactiveElements = document.querySelectorAll('button, .photo-item, .cake, .control-btn, .secret-message');
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursorDot.style.transform = 'scale(2)';
+                    cursorOutline.style.transform = 'scale(1.5)';
+                    cursorOutline.style.borderWidth = '3px';
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursorDot.style.transform = 'scale(1)';
+                    cursorOutline.style.transform = 'scale(1)';
+                    cursorOutline.style.borderWidth = '2px';
+                });
+            });
+        }
+        
+        // Precargar imágenes
+        function preloadImages() {
+            const images = document.querySelectorAll('.photo-img');
+            images.forEach(img => {
+                // Forzar carga de imágenes
+                const newImg = new Image();
+                newImg.src = img.src;
+            });
+        }
+        
+        // Manejo de carga de imágenes
+        function imageLoaded(img) {
+            loadedImagesCount++;
+            img.parentElement.querySelector('.photo-loading').style.display = 'none';
+            img.style.display = 'block';
+            
+            // Agregar evento de clic para el modal
+            img.addEventListener('click', () => openModal(img));
+        }
+        
+        function imageError(img, imageId) {
+            console.error(`Error cargando imagen: ${imageId}`);
+            img.style.display = 'none';
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'photo-error';
+            errorDiv.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>No se pudo cargar la imagen</p>
+                <button onclick="retryImage('${imageId}', this)">Reintentar</button>
+            `;
+            
+            img.parentElement.appendChild(errorDiv);
+        }
+        
+        function retryImage(imageId, button) {
+            const photoItem = button.parentElement.parentElement;
+            const img = photoItem.querySelector('img');
+            const loadingElement = photoItem.querySelector('.photo-loading');
+            
+            // Mostrar indicador de carga
+            button.disabled = true;
+            button.innerHTML = '<div class="spinner"></div>Cargando...';
+            loadingElement.style.display = 'flex';
+            
+            // Forzar recarga de la imagen
+            img.src = `https://drive.google.com/thumbnail?id=${imageId}&sz=w600&t=${new Date().getTime()}`;
+            
+            // Remover mensaje de error después de intentar cargar
+            setTimeout(() => {
+                if (img.complete && img.naturalHeight !== 0) {
+                    button.parentElement.remove();
+                } else {
+                    button.disabled = false;
+                    button.textContent = 'Reintentar';
+                    loadingElement.style.display = 'none';
+                }
+            }, 2000);
+        }
+        
+        // Control de música
+        function playMusic(type) {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            });
+            
+            let videoId;
+            if (type === 'birthday') {
+                videoId = 'wL7I0BU5vtM';
+            } else if (type === 'shakira') {
+                videoId = 'TGtWWb9emYI';
+            }
+            
+            const playerIframe = document.querySelector(`iframe[src*="${videoId}"]`);
+            if (playerIframe) {
+                playerIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                
+                if (isMuted) {
+                    playerIframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                } else {
+                    playerIframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                }
+            }
+            
+            throwConfetti();
+        }
+        
+        function pauseMusic() {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+            });
+        }
+        
+        function toggleMute() {
+            isMuted = !isMuted;
+            const iframes = document.querySelectorAll('iframe');
+            const muteButtons = document.querySelectorAll('.fa-volume-up, .fa-volume-mute');
+            
+            iframes.forEach(iframe => {
+                if (isMuted) {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                } else {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                }
+            });
+            
+            muteButtons.forEach(icon => {
+                if (isMuted) {
+                    icon.classList.remove('fa-volume-up');
+                    icon.classList.add('fa-volume-mute');
+                } else {
+                    icon.classList.remove('fa-volume-mute');
+                    icon.classList.add('fa-volume-up');
+                }
+            });
+        }
+        
+        // Modal para fotos
+        function openModal(imgElement) {
+            const modal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            if (imgElement.src.includes('drive.google.com')) {
+                const driveId = imgElement.src.split('id=')[1].split('&')[0];
+                modalImg.src = `https://drive.google.com/uc?export=view&id=${driveId}`;
+            } else {
+                modalImg.src = imgElement.src;
+            }
+            
+            modalImg.alt = imgElement.alt;
+            modal.classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('photoModal').classList.remove('show');
+        }
+        
+        // Sistema de confeti
+        function throwConfetti() {
+            const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
+            const symbols = ['🎊', '🎉', '🎈', '✨', '🥳', '❤️', '🌈', '🌟'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                
+                document.body.appendChild(confetti);
+                
+                // Eliminar el confeti después de que termine la animación
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+        
+        // Animación de fondo
+        function startBackgroundAnimation() {
+            setInterval(() => {
+                const decorations = document.querySelectorAll('.header-decoration');
+                decorations.forEach(decoration => {
+                    decoration.style.animationDuration = `${Math.random() * 7 + 3}s`;
+                });
+            }, 5000);
+        }
+        
+        // Efecto de escritura para títulos
+        function typeWriterEffect() {
+            const titles = document.querySelectorAll('h1, h2, h3');
+            titles.forEach(title => {
+                const originalText = title.textContent;
+                title.textContent = '';
+                
+                let i = 0;
+                const typeInterval = setInterval(() => {
+                    if (i < originalText.length) {
+                        title.textContent += originalText.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(typeInterval);
+                    }
+                }, 100);
+            });
+        }
+        
+        // Iniciar efecto de escritura
+        setTimeout(typeWriterEffect, 1000);
+    </script>
 </body>
 </html>
