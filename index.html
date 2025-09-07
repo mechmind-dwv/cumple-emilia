@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz 5º Cumpleaños, Princesa Emily!</title>
+    <title>¡Feliz 5º Cumpleaños, Emily! - Ballerina Capuchina</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #ff2d75;
-            --color-secondary: #ffcc00;
-            --color-accent: #00c2ff;
+            --color-primary: #a65c3c;
+            --color-secondary: #f7e5d4;
+            --color-accent: #d4a76a;
             --color-background: #fffaf0;
-            --color-text: #333;
-            --color-pink-light: #ff9ecb;
-            --color-blue-light: #9edadf;
+            --color-text: #5a3825;
+            --color-brown-light: #e3c9b5;
+            --color-cream: #f9f1e7;
             --shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -27,12 +27,11 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--color-pink-light) 0%, var(--color-blue-light) 100%);
+            background: linear-gradient(135deg, var(--color-brown-light) 0%, var(--color-cream) 100%);
             color: var(--color-text);
             min-height: 100vh;
             overflow-x: hidden;
             padding: 20px;
-            perspective: 1000px;
         }
 
         .container {
@@ -42,17 +41,17 @@
             border-radius: 25px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            transform-style: preserve-3d;
             position: relative;
         }
 
-        /* Encabezado con animación especial */
+        /* Encabezado con tema de café */
         header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(to right, #ff7eb3, #ffccf9, #b5b9ff);
+            background: linear-gradient(to right, #a65c3c, #d4a76a, #e3c9b5);
             position: relative;
             overflow: hidden;
+            color: white;
         }
 
         .age-badge {
@@ -68,16 +67,15 @@
             justify-content: center;
             margin: 0 auto 20px;
             border: 5px solid var(--color-primary);
-            box-shadow: 0 0 25px rgba(255, 0, 102, 0.6);
-            animation: pulse 2s infinite, rotate 10s infinite linear;
-            transform-style: preserve-3d;
+            box-shadow: 0 0 25px rgba(166, 92, 60, 0.6);
+            animation: pulse 2s infinite;
         }
 
         h1 {
             font-family: 'Baloo 2', cursive;
             font-size: 4rem;
-            color: var(--color-primary);
-            text-shadow: 3px 3px 0 var(--color-secondary);
+            color: white;
+            text-shadow: 3px 3px 0 var(--color-primary);
             margin-bottom: 15px;
             animation: bounceIn 1.2s ease-out;
         }
@@ -121,7 +119,6 @@
             padding: 30px;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            transform-style: preserve-3d;
             position: relative;
             overflow: hidden;
         }
@@ -133,11 +130,11 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent));
+            background: linear-gradient(to right, var(--color-primary), var(--color-accent));
         }
 
         .section:hover {
-            transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
+            transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
@@ -152,7 +149,7 @@
             left: 50%;
             transform: translateX(-50%);
             padding: 0 15px 10px;
-            border-bottom: 3px dotted var(--color-secondary);
+            border-bottom: 3px dotted var(--color-accent);
         }
 
         /* Galería de fotos mejorada */
@@ -170,11 +167,14 @@
             transition: var(--transition);
             height: 200px;
             box-shadow: var(--shadow);
-            transform-style: preserve-3d;
+            background: linear-gradient(45deg, #e3c9b5, #f7e5d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .photo-item:hover {
-            transform: translateY(-5px) rotate3d(1, 1, 0, 5deg) scale(1.05);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
         }
 
@@ -247,19 +247,19 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            box-shadow: 0 5px 15px rgba(255, 0, 102, 0.3);
+            box-shadow: 0 5px 15px rgba(166, 92, 60, 0.3);
         }
 
         .control-btn:hover {
-            background: var(--color-secondary);
+            background: var(--color-accent);
             color: var(--color-primary);
-            transform: scale(1.1) rotate(8deg);
-            box-shadow: 0 8px 20px rgba(255, 204, 0, 0.4);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(212, 167, 106, 0.4);
         }
 
-        /* Sección especial de Valentina */
-        .valentina-section {
-            background: linear-gradient(to right, #8a2be2, #ff00ff);
+        /* Sección especial de Ballerina Capuchina */
+        .capuchina-section {
+            background: linear-gradient(to right, #a65c3c, #d4a76a);
             color: white;
             padding: 25px;
             border-radius: 15px;
@@ -267,10 +267,9 @@
             margin-top: 20px;
             position: relative;
             overflow: hidden;
-            transform-style: preserve-3d;
         }
 
-        .valentina-section::before {
+        .capuchina-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -281,7 +280,7 @@
             z-index: 0;
         }
 
-        .valentina-title {
+        .capuchina-title {
             font-size: 2.2rem;
             margin-bottom: 15px;
             color: var(--color-secondary);
@@ -294,8 +293,8 @@
         footer {
             text-align: center;
             padding: 40px;
-            background: linear-gradient(to right, #ff7eb3, #ffccf9);
-            color: var(--color-primary);
+            background: linear-gradient(to right, #a65c3c, #d4a76a);
+            color: white;
             font-size: 1.3rem;
             font-weight: bold;
             position: relative;
@@ -305,23 +304,22 @@
         .hearts {
             font-size: 2.5rem;
             letter-spacing: 15px;
-            color: var(--color-primary);
+            color: white;
             margin: 20px 0;
             animation: pulse 2s infinite;
         }
 
         .cake {
             font-size: 4rem;
-            animation: bounce 2s infinite alternate, rotate 15s infinite linear;
+            animation: bounce 2s infinite alternate;
             display: inline-block;
             margin-top: 20px;
             cursor: pointer;
             transition: var(--transition);
-            transform-style: preserve-3d;
         }
 
         .cake:hover {
-            transform: scale(1.2) rotate(15deg);
+            transform: scale(1.2);
             filter: drop-shadow(0 0 15px var(--color-secondary));
         }
 
@@ -341,11 +339,6 @@
         @keyframes bounce {
             0% { transform: translateY(0); }
             100% { transform: translateY(-20px); }
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         @keyframes bounceIn {
@@ -376,34 +369,6 @@
             }
         }
 
-        /* Cursor personalizado */
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--color-primary);
-            border-radius: 50%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translateZ(20px);
-        }
-
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--color-secondary);
-            border-radius: 50%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.1s ease;
-            transform: translateZ(10px);
-        }
-
         /* Modal para fotos */
         .modal {
             display: none;
@@ -428,9 +393,9 @@
         .modal-content {
             max-width: 90%;
             max-height: 80%;
-            border: 5px solid var(--color-secondary);
+            border: 5px solid var(--color-accent);
             border-radius: 10px;
-            box-shadow: 0 0 40px rgba(255, 204, 0, 0.6);
+            box-shadow: 0 0 40px rgba(212, 167, 106, 0.6);
             transform: scale(0.9);
             transition: transform 0.3s ease;
         }
@@ -461,19 +426,19 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            background: linear-gradient(45deg, #ffccf9, #b5b9ff);
             color: var(--color-primary);
             font-size: 1.5rem;
+            flex-direction: column;
         }
 
         .spinner {
-            border: 4px solid rgba(255, 0, 102, 0.3);
+            border: 4px solid rgba(166, 92, 60, 0.3);
             border-radius: 50%;
             border-top: 4px solid var(--color-primary);
             width: 40px;
             height: 40px;
             animation: spin 1s linear infinite;
-            margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         @keyframes spin {
@@ -514,12 +479,83 @@
             margin-left: 10px;
             font-weight: bold;
         }
+
+        /* Instrucciones para subir fotos */
+        .upload-instructions {
+            background: #f9f1e7;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid var(--color-accent);
+        }
+
+        .upload-instructions h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .upload-instructions ol {
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+
+        .upload-instructions li {
+            margin-bottom: 10px;
+        }
+
+        .upload-btn {
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .upload-btn:hover {
+            background: var(--color-accent);
+            transform: translateY(-3px);
+        }
+
+        /* Videos locales */
+        .local-video {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .video-item {
+            position: relative;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--color-primary);
+        }
     </style>
 </head>
 <body>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <div class="container">
         <header>
             <div class="age-badge">5</div>
@@ -527,85 +563,60 @@
             <p>¡Celebramos tus 5 años llenos de alegría y diversión!</p>
             
             <div class="header-decoration decoration-1">🎂</div>
-            <div class="header-decoration decoration-2">🥳</div>
-            <div class="header-decoration decoration-3">🎁</div>
-            <div class="header-decoration decoration-4">🎈</div>
+            <div class="header-decoration decoration-2">☕</div>
+            <div class="header-decoration decoration-3">💃</div>
+            <div class="header-decoration decoration-4">🎁</div>
         </header>
         
         <div class="content">
             <div class="section">
                 <h2 class="section-title">Mis Fotos Especiales</h2>
                 
-                <div class="photos">
-                    <!-- Fotos de Emily con mejores prácticas de carga -->
-                    <div class="photo-item">
-                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
-                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG&sz=w600" 
-                             alt="Emily sonriendo" 
-                             onload="imageLoaded(this)" 
-                             onerror="imageError(this, '1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG')">
-                        <div class="photo-caption">¡Sonriendo siempre!</div>
-                    </div>
-                    <div class="photo-item">
-                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
-                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1qlklWfoT53toMmFH-vWa1HkchobZva6b&sz=w600" 
-                             alt="Emily celebrando" 
-                             onload="imageLoaded(this)" 
-                             onerror="imageError(this, '1qlklWfoT53toMmFH-vWa1HkchobZva6b')">
-                        <div class="photo-caption">¡Celebrando la vida!</div>
-                    </div>
-                    <div class="photo-item">
-                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
-                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ&sz=w600" 
-                             alt="Emily jugando" 
-                             onload="imageLoaded(this)" 
-                             onerror="imageError(this, '1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ')">
-                        <div class="photo-caption">¡Jugando como siempre!</div>
-                    </div>
-                    <div class="photo-item">
-                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
-                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC&sz=w600" 
-                             alt="Emily con globos" 
-                             onload="imageLoaded(this)" 
-                             onerror="imageError(this, '1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC')">
-                        <div class="photo-caption">¡Con mis globos favoritos!</div>
-                    </div>
-                    <div class="photo-item">
-                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
-                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr&sz=w600" 
-                             alt="Emily feliz" 
-                             onload="imageLoaded(this)" 
-                             onerror="imageError(this, '1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr')">
-                        <div class="photo-caption">¡Pura felicidad!</div>
-                    </div>
-                    <div class="photo-item">
-                        <div class="photo-loading"><div class="spinner"></div>Cargando...</div>
-                        <img class="photo-img" src="https://drive.google.com/thumbnail?id=1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n&sz=w600" 
-                             alt="Emily de fiesta" 
-                             onload="imageLoaded(this)" 
-                             onerror="imageError(this, '1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n')">
-                        <div class="photo-caption">¡Mode fiesta activado!</div>
+                <div class="upload-instructions">
+                    <h3>📸 ¿Cómo agregar tus fotos?</h3>
+                    <ol>
+                        <li>Haz clic en el botón "Seleccionar fotos"</li>
+                        <li>Elige las fotos de Emily desde tu computadora</li>
+                        <li>¡Las fotos aparecerán automáticamente!</li>
+                        <li>Haz clic en cualquier foto para verla más grande</li>
+                    </ol>
+                    <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+                    <button class="upload-btn" onclick="document.getElementById('file-input').click()">
+                        <i class="fas fa-upload"></i> Seleccionar fotos
+                    </button>
+                </div>
+                
+                <div class="photos" id="photos-container">
+                    <!-- Las fotos se cargarán aquí -->
+                    <div class="photo-item" style="grid-column: 1 / -1; text-align: center;">
+                        <div class="photo-loading">
+                            <div class="spinner"></div>
+                            <p>Selecciona fotos para comenzar</p>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="section">
-                <h2 class="section-title">Mi Video de Cumpleaños</h2>
-                <div class="media-container">
-                    <iframe src="https://drive.google.com/file/d/1mWJIUgHD5s_zHJlABfpbmBF01Bgmnd-N/preview" 
-                            allow="autoplay" 
-                            allowfullscreen>
-                    </iframe>
-                </div>
-                <p>¡Mira este video especial de mi cumpleaños!</p>
+                <h2 class="section-title">Mis Videos Locales</h2>
                 
-                <div class="media-container" style="margin-top: 20px;">
-                    <iframe src="https://drive.google.com/file/d/1atbf_dlZaBbU-cdIFKxvAXAFKlRw62MD/preview" 
-                            allow="autoplay" 
-                            allowfullscreen>
-                    </iframe>
+                <div class="upload-instructions">
+                    <h3>🎥 ¿Cómo agregar tus videos?</h3>
+                    <ol>
+                        <li>Haz clic en el botón "Seleccionar videos"</li>
+                        <li>Elige los videos de Emily desde tu computadora</li>
+                        <li>¡Los videos aparecerán automáticamente!</li>
+                        <li>Haz clic en el botón play para reproducirlos</li>
+                    </ol>
+                    <input type="file" id="video-input" multiple accept="video/*" style="display: none;">
+                    <button class="upload-btn" onclick="document.getElementById('video-input').click()">
+                        <i class="fas fa-video"></i> Seleccionar videos
+                    </button>
                 </div>
-                <p>¡Y este otro momento divertido!</p>
+                
+                <div class="video-grid" id="videos-container">
+                    <!-- Los videos se cargarán aquí -->
+                </div>
             </div>
             
             <div class="section">
@@ -638,18 +649,18 @@
             </div>
             
             <div class="section">
-                <h2 class="section-title">Mi Serie Favorita</h2>
-                <div class="valentina-section">
-                    <h3 class="valentina-title">Valentina Capuchina</h3>
-                    <p>¡Como Valentina, soy valiente y llena de energía!</p>
-                    <div style="font-size: 4rem; margin: 20px 0; animation: pulse 2s infinite;">🌶️</div>
-                    <p>¡Aventuras y diversión todos los días!</p>
+                <h2 class="section-title">Mi Personaje Favorito</h2>
+                <div class="capuchina-section">
+                    <h3 class="capuchina-title">Ballerina Capuchina</h3>
+                    <p>¡Como la Ballerina Capuchina, bailo con alegría y elegancia!</p>
+                    <div style="font-size: 4rem; margin: 20px 0; animation: pulse 2s infinite;">💃☕</div>
+                    <p>¡Tralalero tralalá! ¡Bailando con mi taza de capuchino!</p>
                 </div>
             </div>
         </div>
         
-        <div class="valentina-section" style="margin: 30px;">
-            <h3 class="valentina-title">¡Eres Nuestra Estrella!</h3>
+        <div class="capuchina-section" style="margin: 30px;">
+            <h3 class="capuchina-title">¡Eres Nuestra Estrella!</h3>
             <p>Emily, en tus 5 años, iluminas nuestras vidas con tu sonrisa y alegría.</p>
             <p>¡Que tengas un día lleno de magia y diversión!</p>
         </div>
@@ -661,7 +672,7 @@
         </footer>
     </div>
 
-    <!-- Modal para ver fotos en grande -->
+    <!-- Modal para fotos en grande -->
     <div id="photoModal" class="modal">
         <span class="close-modal" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="modalImage">
@@ -678,8 +689,8 @@
         
         // Inicializar la página
         document.addEventListener('DOMContentLoaded', function() {
-            initCustomCursor();
-            preloadImages();
+            initFileUpload();
+            initVideoUpload();
             startBackgroundAnimation();
             
             // Iniciar música después de la interacción del usuario
@@ -691,94 +702,103 @@
             }, { once: true });
         });
         
-        // Cursor personalizado
-        function initCustomCursor() {
-            const cursorDot = document.querySelector('.cursor-dot');
-            const cursorOutline = document.querySelector('.cursor-outline');
+        // Sistema de carga de archivos locales para fotos
+        function initFileUpload() {
+            const fileInput = document.getElementById('file-input');
+            const photosContainer = document.getElementById('photos-container');
             
-            document.addEventListener('mousemove', (e) => {
-                cursorDot.style.left = `${e.clientX - 4}px`;
-                cursorDot.style.top = `${e.clientY - 4}px`;
-                
-                cursorOutline.style.left = `${e.clientX - 20}px`;
-                cursorOutline.style.top = `${e.clientY - 20}px`;
-            });
-            
-            // Efectos al hacer hover en elementos interactivos
-            const interactiveElements = document.querySelectorAll('button, .photo-item, .cake, .control-btn, .secret-message');
-            interactiveElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursorDot.style.transform = 'scale(2)';
-                    cursorOutline.style.transform = 'scale(1.5)';
-                    cursorOutline.style.borderWidth = '3px';
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursorDot.style.transform = 'scale(1)';
-                    cursorOutline.style.transform = 'scale(1)';
-                    cursorOutline.style.borderWidth = '2px';
-                });
-            });
-        }
-        
-        // Precargar imágenes
-        function preloadImages() {
-            const images = document.querySelectorAll('.photo-img');
-            images.forEach(img => {
-                // Forzar carga de imágenes
-                const newImg = new Image();
-                newImg.src = img.src;
-            });
-        }
-        
-        // Manejo de carga de imágenes
-        function imageLoaded(img) {
-            loadedImagesCount++;
-            img.parentElement.querySelector('.photo-loading').style.display = 'none';
-            img.style.display = 'block';
-            
-            // Agregar evento de clic para el modal
-            img.addEventListener('click', () => openModal(img));
-        }
-        
-        function imageError(img, imageId) {
-            console.error(`Error cargando imagen: ${imageId}`);
-            img.style.display = 'none';
-            
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'photo-error';
-            errorDiv.innerHTML = `
-                <i class="fas fa-exclamation-triangle"></i>
-                <p>No se pudo cargar la imagen</p>
-                <button onclick="retryImage('${imageId}', this)">Reintentar</button>
-            `;
-            
-            img.parentElement.appendChild(errorDiv);
-        }
-        
-        function retryImage(imageId, button) {
-            const photoItem = button.parentElement.parentElement;
-            const img = photoItem.querySelector('img');
-            const loadingElement = photoItem.querySelector('.photo-loading');
-            
-            // Mostrar indicador de carga
-            button.disabled = true;
-            button.innerHTML = '<div class="spinner"></div>Cargando...';
-            loadingElement.style.display = 'flex';
-            
-            // Forzar recarga de la imagen
-            img.src = `https://drive.google.com/thumbnail?id=${imageId}&sz=w600&t=${new Date().getTime()}`;
-            
-            // Remover mensaje de error después de intentar cargar
-            setTimeout(() => {
-                if (img.complete && img.naturalHeight !== 0) {
-                    button.parentElement.remove();
-                } else {
-                    button.disabled = false;
-                    button.textContent = 'Reintentar';
-                    loadingElement.style.display = 'none';
+            fileInput.addEventListener('change', function(event) {
+                const files = event.target.files;
+                if (files.length > 0) {
+                    photosContainer.innerHTML = '';
+                    
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        if (file.type.match('image.*')) {
+                            const reader = new FileReader();
+                            
+                            reader.onload = function(e) {
+                                const photoItem = document.createElement('div');
+                                photoItem.className = 'photo-item';
+                                
+                                const img = document.createElement('img');
+                                img.className = 'photo-img';
+                                img.src = e.target.result;
+                                img.alt = 'Foto de Emily ' + (i + 1);
+                                img.style.display = 'block';
+                                
+                                const caption = document.createElement('div');
+                                caption.className = 'photo-caption';
+                                caption.textContent = '¡Emily a los 5 años!';
+                                
+                                photoItem.appendChild(img);
+                                photoItem.appendChild(caption);
+                                photosContainer.appendChild(photoItem);
+                                
+                                // Agregar evento de clic para el modal
+                                img.addEventListener('click', () => openModal(img));
+                                
+                                loadedImagesCount++;
+                            };
+                            
+                            reader.readAsDataURL(file);
+                        }
+                    }
                 }
-            }, 2000);
+            });
+        }
+        
+        // Sistema de carga de archivos locales para videos
+        function initVideoUpload() {
+            const videoInput = document.getElementById('video-input');
+            const videosContainer = document.getElementById('videos-container');
+            
+            videoInput.addEventListener('change', function(event) {
+                const files = event.target.files;
+                if (files.length > 0) {
+                    videosContainer.innerHTML = '';
+                    
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        if (file.type.match('video.*')) {
+                            const reader = new FileReader();
+                            
+                            reader.onload = function(e) {
+                                const videoItem = document.createElement('div');
+                                videoItem.className = 'video-item';
+                                
+                                const video = document.createElement('video');
+                                video.className = 'local-video';
+                                video.src = e.target.result;
+                                video.controls = true;
+                                video.addEventListener('play', function() {
+                                    pauseAllVideos(video);
+                                });
+                                
+                                const caption = document.createElement('div');
+                                caption.className = 'video-caption';
+                                caption.textContent = 'Video ' + (i + 1) + ' - ¡Mira a Emily!';
+                                
+                                videoItem.appendChild(video);
+                                videoItem.appendChild(caption);
+                                videosContainer.appendChild(videoItem);
+                            };
+                            
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Pausar todos los videos excepto el que se está reproduciendo
+        function pauseAllVideos(currentVideo) {
+            const allVideos = document.querySelectorAll('video');
+            allVideos.forEach(video => {
+                if (video !== currentVideo && !video.paused) {
+                    video.pause();
+                }
+            });
         }
         
         // Control de música
@@ -845,13 +865,7 @@
             const modal = document.getElementById('photoModal');
             const modalImg = document.getElementById('modalImage');
             
-            if (imgElement.src.includes('drive.google.com')) {
-                const driveId = imgElement.src.split('id=')[1].split('&')[0];
-                modalImg.src = `https://drive.google.com/uc?export=view&id=${driveId}`;
-            } else {
-                modalImg.src = imgElement.src;
-            }
-            
+            modalImg.src = imgElement.src;
             modalImg.alt = imgElement.alt;
             modal.classList.add('show');
         }
@@ -862,8 +876,8 @@
         
         // Sistema de confeti
         function throwConfetti() {
-            const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
-            const symbols = ['🎊', '🎉', '🎈', '✨', '🥳', '❤️', '🌈', '🌟'];
+            const colors = ['#a65c3c', '#d4a76a', '#f7e5d4', '#8a2be2', '#ff00ff'];
+            const symbols = ['🎊', '🎉', '🎈', '✨', '🥳', '❤️', '🌈', '🌟', '☕', '💃'];
             
             for (let i = 0; i < 50; i++) {
                 const confetti = document.createElement('div');
@@ -892,28 +906,6 @@
                 });
             }, 5000);
         }
-        
-        // Efecto de escritura para títulos
-        function typeWriterEffect() {
-            const titles = document.querySelectorAll('h1, h2, h3');
-            titles.forEach(title => {
-                const originalText = title.textContent;
-                title.textContent = '';
-                
-                let i = 0;
-                const typeInterval = setInterval(() => {
-                    if (i < originalText.length) {
-                        title.textContent += originalText.charAt(i);
-                        i++;
-                    } else {
-                        clearInterval(typeInterval);
-                    }
-                }, 100);
-            });
-        }
-        
-        // Iniciar efecto de escritura
-        setTimeout(typeWriterEffect, 1000);
     </script>
 </body>
 </html>
