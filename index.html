@@ -5,312 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Feliz 5º Cumpleaños, Emily!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #ff9ecb 0%, #9edadf 100%);
-            color: #333;
-            min-height: 100vh;
-            overflow-x: hidden;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(to right, #ff7eb3, #ffccf9, #b5b9ff);
-            position: relative;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            color: #ff0066;
-            text-shadow: 3px 3px 0 #ffcc00;
-            margin-bottom: 15px;
-        }
-        
-        .age-badge {
-            background: #ffcc00;
-            color: #ff0066;
-            font-size: 2.2rem;
-            font-weight: bold;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            border: 5px solid #ff0066;
-            box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .header-decoration {
-            position: absolute;
-            font-size: 2.8rem;
-            animation: float 3s infinite ease-in-out;
-            z-index: 1;
-        }
-        
-        .decoration-1 { top: 20px; left: 5%; animation-delay: 0s; }
-        .decoration-2 { top: 10px; right: 5%; animation-delay: 0.5s; }
-        .decoration-3 { bottom: 15px; left: 10%; animation-delay: 1s; }
-        .decoration-4 { bottom: 20px; right: 10%; animation-delay: 1.5s; }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-        }
-        
-        .content {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        @media (max-width: 900px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .section {
-            background: #fff;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .section:hover {
-            transform: translateY(-5px);
-        }
-        
-        .section-title {
-            color: #ff0066;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center;
-            border-bottom: 3px dotted #ffcc00;
-            padding-bottom: 10px;
-        }
-        
-        .photos {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        
-        .photo-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            height: 180px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .photo-item:hover img {
-            transform: scale(1.1);
-        }
-        
-        .video-container {
-            background: linear-gradient(45deg, #ffccf9, #b5b9ff);
-            border-radius: 15px;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ff0066;
-            font-size: 4rem;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: transform 0.3s;
-            position: relative;
-        }
-        
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            border: none;
-        }
-        
-        .video-container:hover {
-            transform: scale(1.03);
-        }
-        
-        .music-player {
-            background: #f0f9ff;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .music-title {
-            color: #ff0066;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .player-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .control-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            background: #ff0066;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .control-btn:hover {
-            background: #ffcc00;
-            color: #ff0066;
-            transform: scale(1.1);
-        }
-        
-        .valentina-section {
-            background: linear-gradient(to right, #8a2be2, #ff00ff);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .valentina-title {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #ffcc00;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(to right, #ff7eb3, #ffccf9);
-            color: #ff0066;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        
-        .hearts {
-            font-size: 2rem;
-            letter-spacing: 10px;
-            color: #ff0066;
-            margin: 15px 0;
-        }
-        
-        .cake {
-            font-size: 3rem;
-            animation: bounce 2s infinite alternate;
-            display: inline-block;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-        
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-20px); }
-        }
-        
-        /* Modal para fotos */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 80%;
-            border: 5px solid #ffcc00;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            text-shadow: 0 0 5px #ff0066;
-            transition: transform 0.3s;
-            z-index: 2001;
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg);
-        }
-        
-        .instructions {
-            background: #e3f2fd;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: left;
-        }
-        
-        .photo-counter {
-            text-align: center;
-            margin-top: 10px;
-            color: #ff0066;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <canvas id="confetti-canvas"></canvas>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <div class="container">
         <header>
             <div class="age-badge">5</div>
@@ -333,47 +34,47 @@
                 
                 <div class="photos">
                     <!-- Fotos de Emily integradas desde Google Drive -->
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG&sz=w600" 
                              alt="Emily sonriendo" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1qlklWfoT53toMmFH-vWa1HkchobZva6b&sz=w600" 
                              alt="Emily celebrando" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ&sz=w600" 
                              alt="Emily jugando" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC&sz=w600" 
                              alt="Emily con globos" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr&sz=w600" 
                              alt="Emily feliz" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n&sz=w600" 
                              alt="Emily de fiesta" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1O6PfbaULI2_QstDCi-z4C37lvCAOUpBC&sz=w600" 
                              alt="Emily sonriente" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1s0T2uHuMCipwl4Fx_o3ItrdaNIwFkIzD&sz=w600" 
                              alt="Emily disfrutando" 
                              onclick="openModal(this)">
                     </div>
-                    <div class="photo-item">
+                    <div class="photo-item" style="transform-style: preserve-3d;">
                         <img src="https://drive.google.com/thumbnail?id=1IFT9tVLzDq4TOWZvkyZR8Fjurw8ONGEP&sz=w600" 
                              alt="Emily contenta" 
                              onclick="openModal(this)">
@@ -408,9 +109,11 @@
                     <div class="player-controls">
                         <button class="control-btn" onclick="playMusic('shakira')"><i class="fas fa-play"></i></button>
                         <button class="control-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
-                        <button class="control-btn" onclick="volumeToggle()"><i class="fas fa-volume-up"></i></button>
+                        <button class="control-btn" onclick="volumeToggle()"><i class="fas fa-volume-up" id="volume-icon"></i></button>
                     </div>
-                    <audio id="shakira-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+                    <audio id="shakira-audio">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+                    </audio>
                 </div>
                 
                 <div class="music-player">
@@ -420,7 +123,9 @@
                         <button class="control-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i></button>
                         <button class="control-btn" onclick="volumeToggle()"><i class="fas fa-volume-up"></i></button>
                     </div>
-                    <audio id="cumple-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+                    <audio id="cumple-audio">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mp3">
+                    </audio>
                 </div>
             </div>
             
@@ -454,106 +159,6 @@
         <img class="modal-content" id="modalImage">
     </div>
 
-    <script>
-        // Variables para control de música
-        let currentAudio = null;
-        let isVolumeOn = true;
-        
-        // Funcionalidad para la música
-        function playMusic(type) {
-            // Detener música actual si hay alguna
-            if (currentAudio) {
-                currentAudio.pause();
-            }
-            
-            // Reproducir la música seleccionada
-            if (type === 'shakira') {
-                currentAudio = document.getElementById('shakira-audio');
-            } else if (type === 'cumple') {
-                currentAudio = document.getElementById('cumple-audio');
-            }
-            
-            currentAudio.volume = isVolumeOn ? 0.7 : 0;
-            currentAudio.play();
-            throwConfetti();
-        }
-        
-        function pauseMusic() {
-            if (currentAudio) {
-                currentAudio.pause();
-            }
-        }
-        
-        function volumeToggle() {
-            isVolumeOn = !isVolumeOn;
-            if (currentAudio) {
-                currentAudio.volume = isVolumeOn ? 0.7 : 0;
-                
-                // Cambiar icono de volumen
-                const volumeIcons = document.querySelectorAll('.fa-volume-up, .fa-volume-mute');
-                volumeIcons.forEach(icon => {
-                    if (isVolumeOn) {
-                        icon.classList.remove('fa-volume-mute');
-                        icon.classList.add('fa-volume-up');
-                    } else {
-                        icon.classList.remove('fa-volume-up');
-                        icon.classList.add('fa-volume-mute');
-                    }
-                });
-            }
-        }
-        
-        // Funcionalidad para el modal de fotos
-        function openModal(imgElement) {
-            const modal = document.getElementById('photoModal');
-            const modalImg = document.getElementById('modalImage');
-            
-            // Si es una imagen de Google Drive, usar el enlace original para mejor calidad
-            if (imgElement.src.includes('drive.google.com')) {
-                const driveId = imgElement.src.split('id=')[1].split('&')[0];
-                modalImg.src = `https://drive.google.com/uc?export=view&id=${driveId}`;
-            } else {
-                modalImg.src = imgElement.src;
-            }
-            
-            modalImg.alt = imgElement.alt;
-            modal.style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('photoModal').style.display = 'none';
-        }
-
-        // Cerrar modal al hacer clic fuera de la imagen
-        document.getElementById('photoModal').addEventListener('click', function(e) {
-            if (e.target.id === 'photoModal') {
-                closeModal();
-            }
-        });
-        
-        // Sistema de confeti
-        function throwConfetti() {
-            const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
-            
-            for (let i = 0; i < 30; i++) {
-                const confetti = document.createElement('div');
-                confetti.innerHTML = ['🎊', '🎉', '🎈', '✨', '🥳'][Math.floor(Math.random() * 5)];
-                confetti.style.position = 'fixed';
-                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = Math.random() * window.innerHeight + 'px';
-                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.pointerEvents = 'none';
-                confetti.style.zIndex = '1000';
-                confetti.style.opacity = '0';
-                document.body.appendChild(confetti);
-                
-                // Animación de entrada
-                setTimeout(() => {
-                    confetti.style.opacity = '1';
-                    confetti.style.transition = 'all 1s ease-out';
-                }, 10);
-                
-                // Animación de caída
-                let pos = 0;
-                const fall = setI
+    <script src="script.js"></script>
+</body>
+    </html>
