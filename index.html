@@ -551,6 +551,184 @@
                 </div>
             </div>
         </div>
+        
         <div class="valentina-section" style="margin: 30px;">
             <h3 class="valentina-title">¡Eres Nuestra Estrella!</h3>
-            <p>Emily, en tus 5 años,
+            <p>Emily, en tus 5 años, iluminas nuestras vidas con tu sonrisa y alegría.</p>
+            <p>¡Que tengas un día lleno de magia y diversión!</p>
+        </div>
+        
+        <footer>
+            <div class="hearts">❤️🌈✨🎊🎉</div>
+            <p>Con mucho cariño en tu día especial</p>
+            <div class="cake" onclick="throwConfetti()">🎂</div>
+        </footer>
+    </div>
+
+    <!-- Modal para ver fotos en grande -->
+    <div id="photoModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Variables para control de YouTube
+        let youtubePlayers = {};
+        let isYouTubeMuted = false;
+        let currentYouTubePlayer = null;
+
+        // Cargar la API de YouTube
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Inicializar reproductores de YouTube cuando la API esté lista
+        function onYouTubeIframeAPIReady() {
+            // Crear reproductor para Cumpleaños Feliz
+            youtubePlayers['wL7I0BU5vtM'] = new YT.Player(document.querySelector('iframe[src*="wL7I0BU5vtM"]'), {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+            
+            // Crear reproductor para Shakira
+            youtubePlayers['TGtWWb9emYI'] = new YT.Player(document.querySelector('iframe[src*="TGtWWb9emYI"]'), {
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            console.log('Reproductor de YouTube listo');
+        }
+
+        function onPlayerStateChange(event) {
+            // Puedes agregar lógica adicional aquí si es necesario
+        }
+
+        // Controlar reproducción de YouTube
+        function playYouTubeVideo(videoId) {
+            // Pausar cualquier video actual
+            if (currentYouTubePlayer && currentYouTubePlayer !== videoId) {
+                youtubePlayers[currentYouTubePlayer].pauseVideo();
+            }
+            
+            // Reproducir el video seleccionado
+            youtubePlayers[videoId].playVideo();
+            currentYouTubePlayer = videoId;
+            
+            // Aplicar configuración de mute
+            if (isYouTubeMuted) {
+                youtubePlayers[videoId].mute();
+            } else {
+                youtubePlayers[videoId].unMute();
+            }
+            
+            throwConfetti();
+        }
+
+        function pauseYouTubeVideo() {
+            if (currentYouTubePlayer) {
+                youtubePlayers[currentYouTubePlayer].pauseVideo();
+            }
+        }
+
+        function toggleMuteYouTube() {
+            isYouTubeMuted = !isYouTubeMuted;
+            
+            if (currentYouTubePlayer) {
+                if (isYouTubeMuted) {
+                    youtubePlayers[currentYouTubePlayer].mute();
+                } else {
+                    youtubePlayers[currentYouTubePlayer].unMute();
+                }
+            }
+            
+            // Cambiar icono de volumen
+            const volumeIcons = document.querySelectorAll('#youtube-volume-icon, .fa-volume-up, .fa-volume-mute');
+            volumeIcons.forEach(icon => {
+                if (isYouTubeMuted) {
+                    icon.classList.remove('fa-volume-up');
+                    icon.classList.add('fa-volume-mute');
+                } else {
+                    icon.classList.remove('fa-volume-mute');
+                    icon.classList.add('fa-volume-up');
+                }
+            });
+        }
+        
+        // Funcionalidad para el modal de fotos
+        function openModal(imgElement) {
+            const modal = document.getElementById('photoModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Si es una imagen de Google Drive, usar el enlace original para mejor calidad
+            if (imgElement.src.includes('drive.google.com')) {
+                const driveId = imgElement.src.split('id=')[1].split('&')[0];
+                modalImg.src = `https://drive.google.com/uc?export=view&id=${driveId}`;
+            } else {
+                modalImg.src = imgElement.src;
+            }
+            
+            modalImg.alt = imgElement.alt;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('photoModal').style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera de la imagen
+        document.getElementById('photoModal').addEventListener('click', function(e) {
+            if (e.target.id === 'photoModal') {
+                closeModal();
+            }
+        });
+        
+        // Sistema de confeti
+        function throwConfetti() {
+            const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = '🎊';
+                confetti.style.position = 'fixed';
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = Math.random() * window.innerHeight + 'px';
+                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '1000';
+                document.body.appendChild(confetti);
+                
+                // Animación
+                let pos = 0;
+                const fall = setInterval(() => {
+                    pos += 2;
+                    confetti.style.top = parseFloat(confetti.style.top) + 3 + 'px';
+                    confetti.style.opacity = 1 - (pos / 100);
+                    
+                    if (pos > 100) {
+                        clearInterval(fall);
+                        confetti.remove();
+                    }
+                }, 50);
+            }
+        }
+        
+        // Lanzar confeti al hacer clic en el pastel
+        document.querySelector('.cake').addEventListener('click', throwConfetti);
+        
+        // Iniciar automáticamente la primera canción al cargar la página
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                playYouTubeVideo('wL7I0BU5vtM');
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
