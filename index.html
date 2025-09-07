@@ -4,393 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Feliz 5º Cumpleaños, Emily!</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #ff9ecb 0%, #9edadf 100%);
-            color: #333;
-            min-height: 100vh;
-            overflow-x: hidden;
-            padding: 20px;
-            perspective: 1000px;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transform-style: preserve-3d;
-        }
-        
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(to right, #ff7eb3, #ffccf9, #b5b9ff);
-            position: relative;
-            transform-style: preserve-3d;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            color: #ff0066;
-            text-shadow: 3px 3px 0 #ffcc00;
-            margin-bottom: 15px;
-            transform: translateZ(20px);
-        }
-        
-        .age-badge {
-            background: #ffcc00;
-            color: #ff0066;
-            font-size: 2.2rem;
-            font-weight: bold;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            border: 5px solid #ff0066;
-            box-shadow: 0 0 20px rgba(255, 0, 102, 0.6);
-            animation: pulse 2s infinite;
-            transform: translateZ(30px);
-        }
-        
-        @keyframes pulse {
-            0% { transform: translateZ(30px) scale(1); }
-            50% { transform: translateZ(30px) scale(1.05); }
-            100% { transform: translateZ(30px) scale(1); }
-        }
-        
-        .header-decoration {
-            position: absolute;
-            font-size: 2.8rem;
-            animation: float 3s infinite ease-in-out;
-            z-index: 1;
-            transform-style: preserve-3d;
-        }
-        
-        .decoration-1 { top: 20px; left: 5%; animation-delay: 0s; transform: translateZ(10px); }
-        .decoration-2 { top: 10px; right: 5%; animation-delay: 0.5s; transform: translateZ(15px); }
-        .decoration-3 { bottom: 15px; left: 10%; animation-delay: 1s; transform: translateZ(5px); }
-        .decoration-4 { bottom: 20px; right: 10%; animation-delay: 1.5s; transform: translateZ(20px); }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg) translateZ(10px); }
-            50% { transform: translateY(-15px) rotate(5deg) translateZ(15px); }
-        }
-        
-        .content {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        @media (max-width: 900px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .section {
-            background: #fff;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .section:hover {
-            transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 0, 102, 0.2);
-        }
-        
-        .section-title {
-            color: #ff0066;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center;
-            border-bottom: 3px dotted #ffcc00;
-            padding-bottom: 10px;
-            transform: translateZ(10px);
-        }
-        
-        .photos {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        
-        .photo-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.5s ease;
-            height: 180px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transform-style: preserve-3d;
-        }
-        
-        .photo-item:hover {
-            transform: translateY(-5px) rotateX(5deg) rotateY(5deg) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 0, 102, 0.3);
-        }
-        
-        .img-3d {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .photo-item:hover .img-3d {
-            transform: scale(1.1) translateZ(5px);
-        }
-        
-        .video-container {
-            background: linear-gradient(45deg, #ffccf9, #b5b9ff);
-            border-radius: 15px;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ff0066;
-            font-size: 4rem;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-            overflow: hidden;
-        }
-        
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            border: none;
-            transform: translateZ(5px);
-        }
-        
-        .video-container:hover {
-            transform: scale(1.03) rotateX(2deg) rotateY(2deg);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .music-player {
-            background: #f0f9ff;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-            transform-style: preserve-3d;
-        }
-        
-        .music-title {
-            color: #ff0066;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            transform: translateZ(5px);
-        }
-        
-        .player-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            transform: translateZ(10px);
-        }
-        
-        .control-btn {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            background: #ff0066;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            transform-style: preserve-3d;
-            position: relative;
-        }
-        
-        .control-btn:hover {
-            background: #ffcc00;
-            color: #ff0066;
-            transform: scale(1.1) rotateY(10deg) translateZ(5px);
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
-        }
-        
-        .control-btn::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.1);
-            border-radius: inherit;
-            transform: translateZ(-5px);
-            transition: all 0.3s ease;
-        }
-        
-        .control-btn:hover::before {
-            transform: translateZ(-8px);
-        }
-        
-        .valentina-section {
-            background: linear-gradient(to right, #8a2be2, #ff00ff);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin-top: 20px;
-            transform-style: preserve-3d;
-        }
-        
-        .valentina-title {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #ffcc00;
-            transform: translateZ(10px);
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(to right, #ff7eb3, #ffccf9);
-            color: #ff0066;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transform-style: preserve-3d;
-        }
-        
-        .hearts {
-            font-size: 2rem;
-            letter-spacing: 10px;
-            color: #ff0066;
-            margin: 15px 0;
-            transform: translateZ(15px);
-        }
-        
-        .cake {
-            font-size: 3rem;
-            animation: bounce 2s infinite alternate;
-            display: inline-block;
-            margin-top: 15px;
-            cursor: pointer;
-            transform-style: preserve-3d;
-        }
-        
-        .cake:hover {
-            transform: rotate(10deg) translateZ(5px);
-        }
-        
-        @keyframes bounce {
-            0% { transform: translateY(0) translateZ(10px); }
-            100% { transform: translateY(-20px) translateZ(15px); }
-        }
-        
-        /* Modal para fotos */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            justify-content: center;
-            align-items: center;
-            transform-style: preserve-3d;
-        }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 80%;
-            border: 5px solid #ffcc00;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(255, 204, 0, 0.5);
-            transform: translateZ(50px);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-            text-shadow: 0 0 5px #ff0066;
-            transition: transform 0.3s;
-            z-index: 2001;
-            transform: translateZ(60px);
-        }
-
-        .close-modal:hover {
-            transform: rotate(90deg) translateZ(65px);
-        }
-
-        .instructions {
-            background: #e3f2fd;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            text-align: left;
-            transform: translateZ(5px);
-        }
-
-        .photo-counter {
-            text-align: center;
-            margin-top: 10px;
-            color: #ff0066;
-            font-weight: bold;
-            transform: translateZ(5px);
-        }
-
-        /* Reproductor de YouTube */
-        .youtube-player {
-            width: 100%;
-            height: 80px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            transform: translateZ(5px);
-        }
-        
-        .youtube-title {
-            font-size: 1rem;
-            color: #ff0066;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .music-notice {
-            background: #fff8e1;
-            padding: 10px;
-            border-radius: 10px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: #ff6d00;
-            text-align: center;
-            border-left: 4px solid #ffcc00;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -411,74 +26,28 @@
                 
                 <div class="instructions">
                     <h3>📸 Galería de Emily - Haz clic en cada foto para verla más grande</h3>
+                    <p>Si las fotos no se cargan, verifica que los enlaces de Google Drive sean públicos.</p>
+                </div>
+                
+                <div class="debug-info" id="photoDebugInfo">
+                    Estado de carga de imágenes: Verificando...
                 </div>
                 
                 <div class="photos">
-                    <!-- Fotos de Emily integradas desde Google Drive -->
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG&sz=w600" 
-                             alt="Emily sonriendo" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1qlklWfoT53toMmFH-vWa1HkchobZva6b&sz=w600" 
-                             alt="Emily celebrando" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ&sz=w600" 
-                             alt="Emily jugando" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC&sz=w600" 
-                             alt="Emily con globos" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr&sz=w600" 
-                             alt="Emily feliz" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n&sz=w600" 
-                             alt="Emily de fiesta" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1O6PfbaULI2_QstDCi-z4C37lvCAOUpBC&sz=w600" 
-                             alt="Emily sonriente" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1s0T2uHuMCipwl4Fx_o3ItrdaNIwFkIzD&sz=w600" 
-                             alt="Emily disfrutando" 
-                             onclick="openModal(this)">
-                    </div>
-                    <div class="photo-item">
-                        <img class="img-3d" src="https://drive.google.com/thumbnail?id=1IFT9tVLzDq4TOWZvkyZR8Fjurw8ONGEP&sz=w600" 
-                             alt="Emily contenta" 
-                             onclick="openModal(this)">
-                    </div>
+                    <!-- Las fotos se cargarán dinámicamente con JavaScript -->
                 </div>
-                <div class="photo-counter">9 fotos especiales de Emily</div>
+                <div class="photo-counter" id="photoCounter"></div>
             </div>
             
             <div class="section">
                 <h2 class="section-title">Mi Video de Cumpleaños</h2>
                 <div class="video-container">
-                    <iframe src="https://drive.google.com/file/d/1mWJIUgHD5s_zHJlABfpbmBF01Bgmnd-N/preview" 
-                            allow="autoplay" 
-                            allowfullscreen>
-                    </iframe>
+                    <iframe src="" id="video1" allow="autoplay" allowfullscreen></iframe>
                 </div>
                 <p>¡Mira este video especial de mi cumpleaños!</p>
                 
                 <div class="video-container" style="margin-top: 20px;">
-                    <iframe src="https://drive.google.com/file/d/1atbf_dlZaBbU-cdIFKxvAXAFKlRw62MD/preview" 
-                            allow="autoplay" 
-                            allowfullscreen>
-                    </iframe>
+                    <iframe src="" id="video2" allow="autoplay" allowfullscreen></iframe>
                 </div>
                 <p>¡Y este otro momento divertido!</p>
             </div>
@@ -489,55 +58,29 @@
                 <div class="music-player">
                     <div class="music-title">Cumpleaños Feliz Emily</div>
                     <div class="youtube-player">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            src="https://www.youtube.com/embed/wL7I0BU5vtM?rel=0&modestbranding=1"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+                        <iframe id="youtube1" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="player-controls">
-                        <button class="control-btn" onclick="playYouTubeVideo('wL7I0BU5vtM')">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <button class="control-btn" onclick="pauseYouTubeVideo()">
-                            <i class="fas fa-pause"></i>
-                        </button>
-                        <button class="control-btn" onclick="toggleMuteYouTube()">
-                            <i class="fas fa-volume-up" id="youtube-volume-icon"></i>
-                        </button>
+                        <button class="control-btn" id="play1"><i class="fas fa-play"></i></button>
+                        <button class="control-btn" id="pause1"><i class="fas fa-pause"></i></button>
+                        <button class="control-btn" id="mute1"><i class="fas fa-volume-up"></i></button>
                     </div>
                 </div>
                 
                 <div class="music-player">
                     <div class="music-title">Shakira - Ole Ola</div>
                     <div class="youtube-player">
-                        <iframe 
-                            width="100%" 
-                            height="100%" 
-                            src="https://www.youtube.com/embed/TGtWWb9emYI?rel=0&modestbranding=1"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+                        <iframe id="youtube2" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="player-controls">
-                        <button class="control-btn" onclick="playYouTubeVideo('TGtWWb9emYI')">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <button class="control-btn" onclick="pauseYouTubeVideo()">
-                            <i class="fas fa-pause"></i>
-                        </button>
-                        <button class="control-btn" onclick="toggleMuteYouTube()">
-                            <i class="fas fa-volume-up"></i>
-                        </button>
+                        <button class="control-btn" id="play2"><i class="fas fa-play"></i></button>
+                        <button class="control-btn" id="pause2"><i class="fas fa-pause"></i></button>
+                        <button class="control-btn" id="mute2"><i class="fas fa-volume-up"></i></button>
                     </div>
                 </div>
                 
                 <div class="music-notice">
-                    <i class="fas fa-info-circle"></i> Haz clic en los botones para controlar la música de YouTube
+                    <i class="fas fa-info-circle"></i> Haz clic en los botones para controlar la música
                 </div>
             </div>
             
@@ -561,174 +104,16 @@
         <footer>
             <div class="hearts">❤️🌈✨🎊🎉</div>
             <p>Con mucho cariño en tu día especial</p>
-            <div class="cake" onclick="throwConfetti()">🎂</div>
+            <div class="cake" id="confettiBtn">🎂</div>
         </footer>
     </div>
 
     <!-- Modal para ver fotos en grande -->
     <div id="photoModal" class="modal">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <span class="close-modal" id="closeModal">&times;</span>
         <img class="modal-content" id="modalImage">
     </div>
 
-    <script>
-        // Variables para control de YouTube
-        let youtubePlayers = {};
-        let isYouTubeMuted = false;
-        let currentYouTubePlayer = null;
-
-        // Cargar la API de YouTube
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Inicializar reproductores de YouTube cuando la API esté lista
-        function onYouTubeIframeAPIReady() {
-            // Crear reproductor para Cumpleaños Feliz
-            youtubePlayers['wL7I0BU5vtM'] = new YT.Player(document.querySelector('iframe[src*="wL7I0BU5vtM"]'), {
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-            
-            // Crear reproductor para Shakira
-            youtubePlayers['TGtWWb9emYI'] = new YT.Player(document.querySelector('iframe[src*="TGtWWb9emYI"]'), {
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            console.log('Reproductor de YouTube listo');
-        }
-
-        function onPlayerStateChange(event) {
-            // Puedes agregar lógica adicional aquí si es necesario
-        }
-
-        // Controlar reproducción de YouTube
-        function playYouTubeVideo(videoId) {
-            // Pausar cualquier video actual
-            if (currentYouTubePlayer && currentYouTubePlayer !== videoId) {
-                youtubePlayers[currentYouTubePlayer].pauseVideo();
-            }
-            
-            // Reproducir el video seleccionado
-            youtubePlayers[videoId].playVideo();
-            currentYouTubePlayer = videoId;
-            
-            // Aplicar configuración de mute
-            if (isYouTubeMuted) {
-                youtubePlayers[videoId].mute();
-            } else {
-                youtubePlayers[videoId].unMute();
-            }
-            
-            throwConfetti();
-        }
-
-        function pauseYouTubeVideo() {
-            if (currentYouTubePlayer) {
-                youtubePlayers[currentYouTubePlayer].pauseVideo();
-            }
-        }
-
-        function toggleMuteYouTube() {
-            isYouTubeMuted = !isYouTubeMuted;
-            
-            if (currentYouTubePlayer) {
-                if (isYouTubeMuted) {
-                    youtubePlayers[currentYouTubePlayer].mute();
-                } else {
-                    youtubePlayers[currentYouTubePlayer].unMute();
-                }
-            }
-            
-            // Cambiar icono de volumen
-            const volumeIcons = document.querySelectorAll('#youtube-volume-icon, .fa-volume-up, .fa-volume-mute');
-            volumeIcons.forEach(icon => {
-                if (isYouTubeMuted) {
-                    icon.classList.remove('fa-volume-up');
-                    icon.classList.add('fa-volume-mute');
-                } else {
-                    icon.classList.remove('fa-volume-mute');
-                    icon.classList.add('fa-volume-up');
-                }
-            });
-        }
-        
-        // Funcionalidad para el modal de fotos
-        function openModal(imgElement) {
-            const modal = document.getElementById('photoModal');
-            const modalImg = document.getElementById('modalImage');
-            
-            // Si es una imagen de Google Drive, usar el enlace original para mejor calidad
-            if (imgElement.src.includes('drive.google.com')) {
-                const driveId = imgElement.src.split('id=')[1].split('&')[0];
-                modalImg.src = `https://drive.google.com/uc?export=view&id=${driveId}`;
-            } else {
-                modalImg.src = imgElement.src;
-            }
-            
-            modalImg.alt = imgElement.alt;
-            modal.style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('photoModal').style.display = 'none';
-        }
-
-        // Cerrar modal al hacer clic fuera de la imagen
-        document.getElementById('photoModal').addEventListener('click', function(e) {
-            if (e.target.id === 'photoModal') {
-                closeModal();
-            }
-        });
-        
-        // Sistema de confeti
-        function throwConfetti() {
-            const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
-            
-            for (let i = 0; i < 30; i++) {
-                const confetti = document.createElement('div');
-                confetti.innerHTML = '🎊';
-                confetti.style.position = 'fixed';
-                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = Math.random() * window.innerHeight + 'px';
-                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.pointerEvents = 'none';
-                confetti.style.zIndex = '1000';
-                document.body.appendChild(confetti);
-                
-                // Animación
-                let pos = 0;
-                const fall = setInterval(() => {
-                    pos += 2;
-                    confetti.style.top = parseFloat(confetti.style.top) + 3 + 'px';
-                    confetti.style.opacity = 1 - (pos / 100);
-                    
-                    if (pos > 100) {
-                        clearInterval(fall);
-                        confetti.remove();
-                    }
-                }, 50);
-            }
-        }
-        
-        // Lanzar confeti al hacer clic en el pastel
-        document.querySelector('.cake').addEventListener('click', throwConfetti);
-        
-        // Iniciar automáticamente la primera canción al cargar la página
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                playYouTubeVideo('wL7I0BU5vtM');
-            }, 2000);
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
