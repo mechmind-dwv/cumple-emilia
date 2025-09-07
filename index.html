@@ -379,9 +379,67 @@
             pointer-events: none;
             z-index: 9997;
         }
+        
+        /* Notificación */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 0, 102, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            display: none;
+        }
+        
+        /* Mejoras para imágenes reales */
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-item img:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Animaciones de entrada */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
+    <div class="notification" id="notification"></div>
+    
     <div class="container">
         <header>
             <div class="age-badge">5</div>
@@ -417,33 +475,33 @@
                 </div>
                 
                 <div class="photos">
-                    <!-- Fotos de Emily -->
-                    <div class="photo-item" onclick="openModal('amor.jpg')">
-                        <i class="fas fa-image"></i> Emily con amor
+                    <!-- Fotos de Emily - URLs de Google Drive corregidas -->
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG&sz=w1000" data-img-alt="Emily sonriendo">
+                        <img src="https://drive.google.com/thumbnail?id=1JdtwvYeXNhQx-qna_w-Rg0AOgCMvmVLG&sz=w400" alt="Emily sonriendo">
                     </div>
-                    <div class="photo-item" onclick="openModal('amor-prima.jpg')">
-                        <i class="fas fa-image"></i> Emily con su prima
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1qlklWfoT53toMmFH-vWa1HkchobZva6b&sz=w1000" data-img-alt="Emily celebrando">
+                        <img src="https://drive.google.com/thumbnail?id=1qlklWfoT53toMmFH-vWa1HkchobZva6b&sz=w400" alt="Emily celebrando">
                     </div>
-                    <div class="photo-item" onclick="openModal('piscina1.jpg')">
-                        <i class="fas fa-image"></i> Emily en la piscina
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ&sz=w1000" data-img-alt="Emily jugando">
+                        <img src="https://drive.google.com/thumbnail?id=1SsSTFueE5jQWnLHLkGc0LzCqno3vBFtQ&sz=w400" alt="Emily jugando">
                     </div>
-                    <div class="photo-item" onclick="openModal('piscina2.jpg')">
-                        <i class="fas fa-image"></i> Divirtiéndose en el agua
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC&sz=w1000" data-img-alt="Emily con globos">
+                        <img src="https://drive.google.com/thumbnail?id=1v9aO2FwAeWnEKEGyZGRvcSb4ytmSF6RC&sz=w400" alt="Emily con globos">
                     </div>
-                    <div class="photo-item" onclick="openModal('piscina3.jpg')">
-                        <i class="fas fa-image"></i> Jugando en la piscina
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr&sz=w1000" data-img-alt="Emily feliz">
+                        <img src="https://drive.google.com/thumbnail?id=1p5Y3pOK8hSGbwR7giBn0yoNnRB4Tbvhr&sz=w400" alt="Emily feliz">
                     </div>
-                    <div class="photo-item" onclick="openModal('piscina4.jpg')">
-                        <i class="fas fa-image"></i> Momentos divertidos
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n&sz=w1000" data-img-alt="Emily de fiesta">
+                        <img src="https://drive.google.com/thumbnail?id=1MrLf673RK0LM7hG2hbXwewIX6NPi0q-n&sz=w400" alt="Emily de fiesta">
                     </div>
-                    <div class="photo-item" onclick="openModal('piscina-primos.jpg')">
-                        <i class="fas fa-image"></i> Emily con sus primos
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1O6PfbaULI2_QstDCi-z4C37lvCAOUpBC&sz=w1000" data-img-alt="Emily sonriente">
+                        <img src="https://drive.google.com/thumbnail?id=1O6PfbaULI2_QstDCi-z4C37lvCAOUpBC&sz=w400" alt="Emily sonriente">
                     </div>
-                    <div class="photo-item" onclick="openModal('pinta-caras.jpg')">
-                        <i class="fas fa-image"></i> Pintando caras
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1s0T2uHuMCipwl4Fx_o3ItrdaNIwFkIzD&sz=w1000" data-img-alt="Emily disfrutando">
+                        <img src="https://drive.google.com/thumbnail?id=1s0T2uHuMCipwl4Fx_o3ItrdaNIwFkIzD&sz=w400" alt="Emily disfrutando">
                     </div>
-                    <div class="photo-item" onclick="openModal('regalos.jpg')">
-                        <i class="fas fa-image"></i> Abriendo regalos
+                    <div class="photo-item" data-img-src="https://drive.google.com/thumbnail?id=1IFT9tVLzDq4TOWZvkyZR8Fjurw8ONGEP&sz=w1000" data-img-alt="Emily contenta">
+                        <img src="https://drive.google.com/thumbnail?id=1IFT9tVLzDq4TOWZvkyZR8Fjurw8ONGEP&sz=w400" alt="Emily contenta">
                     </div>
                 </div>
                 <div class="photo-counter">9 fotos especiales de Emily</div>
@@ -452,12 +510,12 @@
             <div class="section">
                 <h2 class="section-title">Mi Video de Cumpleaños</h2>
                 <div class="video-container">
-                    <i class="fas fa-video"></i> Video de Cumpleaños
+                    <iframe src="https://drive.google.com/file/d/1mWJIUgHD5s_zHJlABfpbmBF01Bgmnd-N/preview" allow="autoplay" allowfullscreen></iframe>
                 </div>
                 <p>¡Mira este video especial de mi cumpleaños!</p>
                 
                 <div class="video-container" style="margin-top: 20px;">
-                    <i class="fas fa-film"></i> Momentos Divertidos
+                    <iframe src="https://drive.google.com/file/d/1atbf_dlZaBbU-cdIFKxvAXAFKlRw62MD/preview" allow="autoplay" allowfullscreen></iframe>
                 </div>
                 <p>¡Y este otro momento divertido!</p>
             </div>
@@ -517,9 +575,67 @@
         // Variables para control de música
         let currentAudio = null;
         let isVolumeOn = true;
+        let audioContextActivated = false;
+
+        // Inicialización cuando el DOM está cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            initPhotoGallery();
+            initScrollAnimations();
+            
+            // Lanzar confeti al cargar la página
+            setTimeout(throwConfetti, 1000);
+            
+            // Mostrar mensaje de bienvenida
+            setTimeout(() => {
+                showNotification('¡Bienvenida al portafolios de cumpleaños de Emily!', 3000);
+            }, 1500);
+        });
+
+        // Inicializar la galería de fotos
+        function initPhotoGallery() {
+            const photoItems = document.querySelectorAll('.photo-item');
+            
+            photoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const imgSrc = this.getAttribute('data-img-src');
+                    const imgAlt = this.getAttribute('data-img-alt') || 'Foto de Emily';
+                    openModal(imgSrc, imgAlt);
+                });
+            });
+        }
+
+        // Inicializar animaciones al hacer scroll
+        function initScrollAnimations() {
+            const animatedElements = document.querySelectorAll('.section, .ballerina-section');
+            
+            // Hacer visibles todos los elementos inicialmente
+            animatedElements.forEach(el => {
+                el.classList.add('animate-on-scroll');
+                el.classList.add('visible');
+            });
+            
+            // Observador de intersección para animaciones al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Observar todos los elementos animados
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+        }
 
         // Funcionalidad para la música
         function playMusic(type) {
+            // Activar contexto de audio si es necesario
+            if (!audioContextActivated) {
+                activateAudioContext();
+            }
+            
             // Detener música actual si hay alguna
             if (currentAudio) {
                 currentAudio.pause();
@@ -539,15 +655,21 @@
             
             currentAudio.play().catch(error => {
                 console.log('Error reproduciendo audio:', error);
-                alert('Por favor, haz clic en cualquier parte de la página primero para activar el audio');
+                showNotification('Haz clic en cualquier parte de la página para activar el audio');
             });
             
+            // Mostrar notificación
+            const songName = type === 'shakira' ? 'Shakira - Ole Ola' : 'Canción de Cumpleaños';
+            showNotification(`Reproduciendo: ${songName}`);
+            
+            // Lanzar confeti al reproducir música
             throwConfetti();
         }
         
         function pauseMusic() {
             if (currentAudio) {
                 currentAudio.pause();
+                showNotification('Música pausada');
             }
         }
         
@@ -567,19 +689,29 @@
                         icon.classList.add('fa-volume-mute');
                     }
                 });
+                
+                // Mostrar notificación
+                showNotification(isVolumeOn ? 'Volumen activado' : 'Volumen silenciado');
             }
         }
         
+        // Activar contexto de audio
+        function activateAudioContext() {
+            audioContextActivated = true;
+            console.log('Contexto de audio activado');
+        }
+        
         // Funcionalidad para el modal de fotos
-        function openModal(imageName) {
+        function openModal(imgSrc, imgAlt) {
             const modal = document.getElementById('photoModal');
             const modalImg = document.getElementById('modalImage');
             
-            // En un caso real, aquí cargarías la imagen desde tu servidor
-            // Por ahora usamos un placeholder
-            modalImg.src = "https://via.placeholder.com/600x400/ff0066/ffffff?text=Foto+de+Emily";
-            modalImg.alt = "Foto de Emily - " + imageName;
+            modalImg.src = imgSrc;
+            modalImg.alt = imgAlt;
             modal.style.display = 'flex';
+            
+            // Desplazarse suavemente al modal
+            modal.scrollIntoView({ behavior: 'smooth' });
         }
 
         function closeModal() {
@@ -593,44 +725,97 @@
             }
         });
         
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
         // Sistema de confeti
         function throwConfetti() {
             const colors = ['#ff0066', '#ffcc00', '#00ccff', '#ff00ff', '#00ff99'];
+            const confettiTypes = ['🎊', '🎉', '🎈', '✨', '🌟', '🥳', '🎁', '🎂'];
             
-            for (let i = 0; i < 30; i++) {
-                const confetti = document.createElement('div');
-                confetti.innerHTML = '🎊';
-                confetti.style.position = 'fixed';
-                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = Math.random() * window.innerHeight + 'px';
-                confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.pointerEvents = 'none';
-                confetti.style.zIndex = '1000';
-                document.body.appendChild(confetti);
-                
-                // Animación
-                let pos = 0;
-                const fall = setInterval(() => {
-                    pos += 2;
-                    confetti.style.top = parseFloat(confetti.style.top) + 3 + 'px';
-                    confetti.style.opacity = 1 - (pos / 100);
-                    
-                    if (pos > 100) {
-                        clearInterval(fall);
-                        confetti.remove();
-                    }
-                }, 50);
+            for (let i = 0; i < 40; i++) {
+                createConfettiPiece(colors, confettiTypes);
             }
+        }
+        
+        function createConfettiPiece(colors, confettiTypes) {
+            const confetti = document.createElement('div');
+            confetti.innerHTML = confettiTypes[Math.floor(Math.random() * confettiTypes.length)];
+            confetti.style.position = 'fixed';
+            confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = '-50px';
+            confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.pointerEvents = 'none';
+            confetti.style.zIndex = '1000';
+            confetti.style.userSelect = 'none';
+            
+            document.body.appendChild(confetti);
+            
+            // Animación
+            const animationDuration = Math.random() * 3000 + 2000;
+            const horizontalMovement = (Math.random() - 0.5) * 100;
+            
+            confetti.animate([
+                { transform: `translate(0, 0) rotate(0deg)`, opacity: 1 },
+                { transform: `translate(${horizontalMovement}px, ${window.innerHeight}px) rotate(360deg)`, opacity: 0 }
+            ], {
+                duration: animationDuration,
+                easing: 'cubic-bezier(0.1, 0.8, 0.1, 1)'
+            });
+            
+            // Eliminar después de la animación
+            setTimeout(() => {
+                if (confetti.parentNode) {
+                    confetti.parentNode.removeChild(confetti);
+                }
+            }, animationDuration);
+        }
+        
+        // Mostrar notificación
+        function showNotification(message, duration = 2000) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            
+            // Animación de entrada
+            notification.style.display = 'block';
+            notification.animate([
+                { opacity: 0, transform: 'translate(-50%, 100%)' },
+                { opacity: 1, transform: 'translate(-50%, 0)' }
+            ], {
+                duration: 300,
+                easing: 'ease-out'
+            });
+            
+            // Ocultar después de un tiempo
+            setTimeout(() => {
+                // Animación de salida
+                notification.animate([
+                    { opacity: 1, transform: 'translate(-50%, 0)' },
+                    { opacity: 0, transform: 'translate(-50%, 100%)' }
+                ], {
+                    duration: 300,
+                    easing: 'ease-in'
+                }).onfinish = () => {
+                    notification.style.display = 'none';
+                };
+            }, duration);
         }
         
         // Lanzar confeti al hacer clic en el pastel
         document.querySelector('.cake').addEventListener('click', throwConfetti);
         
-        // Lanzar confeti al cargar la página
-        window.addEventListener('load', function() {
-            setTimeout(throwConfetti, 1000);
-        });
+        // Activar audio al hacer clic en cualquier parte de la página
+        document.body.addEventListener('click', function() {
+            if (!audioContextActivated) {
+                activateAudioContext();
+                showNotification('Audio activado - ¡Ahora puedes reproducir música!');
+            }
+        }, { once: true });
     </script>
 </body>
 </html>
